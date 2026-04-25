@@ -1,6 +1,0 @@
-comparador_precos/
-├── app.py
-├── scraper.py
-├── templates/
-│   └── index.html
-└── requirements.txt
