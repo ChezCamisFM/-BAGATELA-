@@ -2,8 +2,6 @@
 
 BAGATELA is an asynchronous scraper prototype using Flask (Backend) and BeautifulSoup (Data Extraction) initially focused on collecting B2C data in a resilient, modular and scalable way.
 
-App for price comparisson of a same product @ Mercado Livre, Amazon, Shopee. 
-
 MVP monetizado (3 meses):
 
 - Afiliação das 3 plataformas + cashback PIX (parceria com PagBank ou Mercado Pago para pagar cashback automático).
