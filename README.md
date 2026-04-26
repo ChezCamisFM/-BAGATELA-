@@ -3,9 +3,8 @@ BAGATELA é o protótipo de scraper assíncrono usando Flask (Backend) e Beautif
 
 # Project Description 
 
-Pesquisa produtos na Amazon por uma palavra-chave.
-Extrai título, preço, avaliação, número de reviews, link para o produto, imagem, entrega e badge especial (ex: "Pequenas Empresas").
-Salva os dados:
+Criar um app para comparar preço de um mesmo produto no Mercado Livre, Shopee e Amazon Brasil. 
+Salva os dados : 
 Em um arquivo JSON
 Em uma captura de tela (screenshot)
 Em um arquivo HTML bruto da página
