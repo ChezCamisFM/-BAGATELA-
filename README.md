@@ -1,13 +1,13 @@
-# BAGATELA SCRAPER 2026 (Phyton + Playright) 
-BAGATELA é o protótipo de scraper assíncrono usando Flask (Backend) e BeautifulSoup (Extração de Dados) com o MVP inicialmente focado na coleta de dados B2C para Mercado Livre (Brasil), Amazon (Brasil) e Shopee, de forma resiliente, modular e escalável. 
+# 🤑 BAGATELA - Phyton + Playright - Prototype Description (2026)
 
-# Project Description 
+BAGATELA is an asynchronous scraper prototype using Flask (Backend) and BeautifulSoup (Data Extraction) initially focused on collecting B2C data in a resilient, modular and scalable way.
 
-Criar um app para comparar preço de um mesmo produto no Mercado Livre, Shopee e Amazon Brasil. 
-Salva os dados : 
-Em um arquivo JSON
-Em uma captura de tela (screenshot)
-Em um arquivo HTML bruto da página
+MVP : App for price comparisson of a same product @ Mercado Livre, Amazon, Shopee. 
+
+Saved Data :
+- JSON file
+- Screenshot
+- Webpage's HTML 
 
 # Structure 
 
