@@ -1,0 +1,5 @@
+Flask==3.0.0
+playwright==1.40.0
+
+After installing, run in terminal to download browsers : 
+playwright install chromium
