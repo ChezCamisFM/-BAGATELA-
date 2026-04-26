@@ -19,13 +19,16 @@ comparador_precos/
 └── requirements.txt
 
 # Requirements.txt
+
 Flask==3.0.0
 playwright==1.40.0
 
-# Bash 
+# After installing, run on terminal to download browsers
+
 playwright install chromium
 
 # Scraper.py
+
 import asyncio
 from playwright.async_api import async_playwright
 
@@ -102,3 +105,59 @@ async def comparar_precos_async(produto):
 # Função síncrona para ser chamada pelo Flask
 def comparar_precos(produto):
     return asyncio.run(comparar_precos_async(produto))
+
+ # app.py
+
+from flask import Flask, request, render_template
+from scraper import comparar_precos
+
+app = Flask(__name__)
+
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    resultados = None
+    produto_buscado = ''
+    if request.method == 'POST':
+        produto_buscado = request.form['produto']
+        resultados = comparar_precos(produto_buscado)
+    return render_template('index.html', resultados=resultados, produto=produto_buscado)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+# templates/index.html
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Comparador de Preços</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; text-align: center; }
+        input, button { padding: 10px; font-size: 16px; margin: 10px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Comparador de Preços</h1>
+    <form method="POST">
+        <input type="text" name="produto" placeholder="Ex: iPhone 13" value="{{ produto }}" required>
+        <button type="submit">Comparar</button>
+    </form>
+
+    {% if resultados %}
+    <table>
+        <tr><th>Plataforma</th><th>Preço (R$)</th></tr>
+        <tr><td>Mercado Livre</td><td>{{ resultados['Mercado Livre'] or 'Não encontrado' }}</td></tr>
+        <tr><td>Amazon</td><td>{{ resultados['Amazon'] or 'Não encontrado' }}</td></tr>
+        <tr><td>Shopee</td><td>{{ resultados['Shopee'] or 'Não encontrado' }}</td></tr>
+    </table>
+    {% endif %}
+</body>
+</html>
+
+# How to run : 
+pip install -r requirements.txt
+playwright install chromium
+python app.py
